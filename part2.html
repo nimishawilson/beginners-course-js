@@ -1,0 +1,83 @@
+<script>
+    //accessing nested objects
+    var myStorage = {
+        "car": {
+            "inside":{
+            "glove box": "maps",
+            "passenger seat":"crumbs",
+            },
+            "outside":{
+            "trunk":"jack"
+            }
+
+        }
+    }
+    console.log(myStorage.car.inside['glove box'])
+
+    //accessingnested arrays
+    var myPlants =[
+        {
+            type:"flowers",
+            list:[
+                "rose",
+                "tulip",
+                "dandlion"
+            ]
+
+        },
+        {
+            type:"trees",
+            list:[
+                "fir",
+                "pine",
+                "birch"
+            ]
+
+        }
+    ];
+    var secondTree = myPlants[1].list[1];
+    console.log(secondTree)
+
+    //record collection
+    var collection = {
+        "1832": {
+        "name": "ram",
+        "address": "st.joseph's school",
+        "friends": [
+            "rahul",
+            "albert"
+        ]
+        },
+        "1840": {
+        "name": "mary",
+        "address": "st.paul's school",
+        "friends": [
+            "anju",
+            "seetha"
+        ]
+        },
+        "1841": {
+        "name": "catherine",
+        "address": "st.mary's school",
+        "friends": [
+            "minju",
+            "sona",
+            "lessly"
+        ]
+        }
+    }
+    var collectionCopy = JSON.parse(JSON.stringify(collection));
+    function updateRecords(id, prop, value){
+        if (value===""){
+            delete collection[id][prop];
+        } else if(prop==="friends"){
+            collection[id][prop] = collection[id][prop] || [];
+      collection[id][prop].push(value);
+        } else{
+            collection[id][prop] =value;
+        }
+    return collection;
+    }
+    updateRecords("1840","name", "louis")
+    console.log(updateRecords("1841","house no", "KS-87"))
+</script>

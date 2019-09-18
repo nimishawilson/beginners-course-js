@@ -1,0 +1,133 @@
+<script>
+
+    //iterate with while loops
+    var myArray = [];
+    var i = 0;
+    while (i < 5) {
+        myArray.push(i);
+        i++;
+    }
+    console.log(myArray)
+
+    //iterate with for loops
+    for (var i = 0; i < 10; i++) {
+        myArray.push(i);
+    }
+    console.log(myArray)
+
+    //iterate odd numbers with for loop
+    var ourArray = [];
+    for (var i = 1; i < 20; i = i + 2) {
+        ourArray.push(i);
+    }
+    console.log(ourArray)
+
+    //count backward with for loop
+    var ourArray2 = [];
+    for (var i = 30; i > 0; i = i - 2) {
+        ourArray2.push(i);
+    }
+    console.log(ourArray2)
+
+    //iterate through an array with for loop
+    var myArr = [10, 20, 30, 40, 50];
+    var total = 0;
+    for (var i = 0; i < myArr.length; i++) {
+        total += myArr[i];
+    }
+    console.log(total)
+
+    //nesting for loops
+    function multiplyAll(arr) {
+        var product = 1;
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr[i].length; j++) {
+                product *= arr[i][j];
+            }
+        }
+        return product;
+    }
+    var product = multiplyAll([[1, 2], [3, 4], [5, 6], [7, 8]]);
+    console.log(product)
+
+    //iterate with do while loops
+    var arrymy = [];
+    var i = 10;
+    do {
+        arrymy.push(i)
+        i++;
+    } while (i < 5)
+    console.log(i, arrymy)
+
+    //profile lookup
+    var contacts = [
+        {
+            "firstname": "nimisha",
+            "lastname": "wilson",
+            "number": "73127368123",
+            "likes": ["javascript", "angular", "typescript"]
+        },
+        {
+            "firstname": "leo",
+            "lastname": "thomas",
+            "number": "8823819283",
+            "likes": ["apple", "orange"]
+        },
+        {
+            "firstname": "theresa",
+            "lastname": "vincent",
+            "number": "423423444",
+            "likes": ["kiwi", "grapes"]
+        }
+    ];
+    function lookUpProfile(name, prop) {
+        for (var i = 0; i < contacts.length; i++) {
+            if (contacts[i].firstname === name) {
+                return contacts[i][prop] || "no such property"
+            }
+
+        }
+        return "no such contact";
+    }
+    var data = lookUpProfile("theresa", "likes");
+    console.log(data)
+
+    //generate random fractions
+    function randomFractions(){
+        return Math.random();
+    }
+    console.log(randomFractions())
+    
+    //generate random whole numbers
+    function randomWholeNumber(){
+      return  Math.floor(Math.random()*10); //togenerate random number between 0 and 10
+    }
+    console.log(randomWholeNumber())
+
+    //generate random whole numbers within a range
+    function ourRandomRange(min,max){
+        return Math.floor(Math.random() * (max-min + 1)) + min;
+    }
+    console.log("random num "+ourRandomRange(100,200))
+
+    //parseInt function
+    function converToInteger(str){
+        return parseInt(str)
+    }
+    console.log(converToInteger("80"))
+
+     //use parseInt function with radix
+     function converToIntegerRad(str){
+        return parseInt(str,2)
+    }
+    console.log(converToIntegerRad("0011"))
+
+    //use conditional terinary operator
+    function checkEqual(a,b){
+        //condition ? statement-if-true: statement-if-false
+       return a===b ? true : false;
+    }
+    console.log(checkEqual(4,4)) 
+
+
+</script>
