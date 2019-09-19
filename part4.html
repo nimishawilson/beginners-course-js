@@ -1,0 +1,42 @@
+<script>
+
+  //use multiple conditional (terinary) operator
+  function checkSign(num) {
+    return num > 0 ? "positive" : num < 0 ? "negative" : "zero"
+  }
+  console.log(checkSign(-10));
+
+
+  //difference between var and let keywords
+  //let doesnot let you declare a variable twice
+  let catName = "Quincy";
+  var quote;
+  catName = "beau";
+
+  function catTalk() {
+    catName = "oliver";
+    return quote = catName + " says meow";
+  }
+  console.log(catTalk());
+
+  //compare scope of var and let keywords
+  function checkScope() {
+    let i = "function scope";
+    if (true) {
+      let i = "block scope";
+      console.log("block scope of i is " + i);
+    }
+    console.log("function scope of i is " + i);
+    return i;
+  }
+  console.log(checkScope());
+
+  //declare a read only variable with const keyword
+  //const have all the features of let , but its readonly. you cannot reassign a const
+  function checkConst(str) {
+    const SENTENCE = "my name is" + str; //make const variables in full capital letters
+    SENTENCE = "my friends name is" + str; // this will make an error as we are reassigning const
+    console.log(SENTENCE)
+  }
+  checkConst("anu");
+</script>
