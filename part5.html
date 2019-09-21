@@ -1,0 +1,167 @@
+<script>
+
+        //use destructuring assignment to assign variables from arrays
+        const [z,x,,y] = [1,2,3,4,5,6,7];
+        console.log(z,x,y);
+        let a=8, b=7;
+        (() => {
+         "use strict";
+         [a,b]= [b,a];//using detructuring to switch the places of a and b
+        }) ();
+        console.log("a"+a);
+        console.log("b"+b);
+    
+    
+        //use detructuring assignment with rest operator
+        const source = [1,2,3,4,5,6,7,8,9,10];
+        function removeFirstTwo(list){
+            const [ , , ...arr] = list;
+            return arr;
+        }
+        const arr = removeFirstTwo(source);
+        console.log(arr);
+        console.log(source);
+    
+    
+        //use destructuring assignment to pass an object as a function's parameters
+        //commonly used in API calls
+        const stats = {
+            max: 56.78,
+            standard_deviation: 4.34,
+            median: 34.54,
+            mode: 23.87,
+            min: -0.75,
+            average: 35.85
+        }
+        const half = (function(){
+          //  return function half(stats){    //instead of passing object stats we can pass the required attributes as shownin next line
+            return function half({min,max}){ 
+       // return (stats.max + stats.min) / 2.0;
+       return (max + min) / 2.0;
+            }
+        }
+        ) ();
+        console.log(stats);
+        console.log(half(stats));
+    
+    
+    
+        //create strings using template literals
+        const person = {
+            name: "zodiac hasbro",
+            age: 56
+        };
+        const greeting = `hello, my name is ${person.name}!
+        I am ${person.age} years old.`;
+        console.log(greeting);
+    
+        //example 2
+        const result = {
+            success: ["max-length","no-amd","prefer-arrow-functions"],
+            failure: ["no-var", "var-on-top", "linebreak"],
+            skipped: ["id-blacklist","no-dup-keys"]
+        };
+        function makeList(arr){
+            const resultDisplayArray = [];
+            for (let i =0; i < arr.length; i++){
+                resultDisplayArray.push(`<li>${arr[i]} </li>`)
+            }
+            return resultDisplayArray;
+        }
+        const resultDisplayArray = makeList(result.failure);
+        console.log(resultDisplayArray)
+    
+    
+    
+        //write concise object literal declarations using simple fields
+        // const createPerson = (name, age, gender) => {
+        //     return {
+        //         name: name,
+        //         age: age,
+        //         gender: gender
+        //     };
+            
+        // };
+        //here key and value are same. ie key and value of name is name
+        //so we can write it into simpler form as
+        const createPerson = (name, age, gender) => ( { name, age, gender});
+    
+        console.log(createPerson("nimisha",5,"female"));
+    
+    
+    
+        //write concise declarative functions
+        
+        
+        const BICYCLE = {
+            gear: 2,
+            // setGear: function(newGear){ //an objcet can contain a function. this is the long way to put an object into function
+            //     "use strict";
+            //     this.gear = newGear;
+            // }
+            //we can write the above function inside an object as
+            setGear(newGear){
+                "use strict";
+                this.gear = newGear;
+            }
+        };
+    BICYCLE.setGear(3);
+    console.log(BICYCLE.gear);
+
+
+    //use class syntax to define a constructor function
+
+    // var spaceShuttle = function(targetPlanet){
+    //     this.targetPlanet = targetPlanet;
+    // }
+    //use class keyword and constructor
+    class SpaceShuttle{
+         constructor(targetPlanet){
+        this.targetPlanet = targetPlanet;
+         }
+    }
+    var zeus = new SpaceShuttle('jupiter');
+    console.log(zeus.targetPlanet)
+
+
+
+    //use getters and setters to control access to an object
+    class Book {
+        constructor(author){
+            this._author = author;
+        }
+        //getter
+        get writter(){
+            return this._author;
+        }
+        //setter
+        set writter(updatedAuthor){
+            this._author = updatedAuthor;
+        }
+    }
+
+    //example 2
+    function makeClass(){
+        class Thermostat {
+            constructor(temp){
+                this._temp = 5/9 * (temp-32);
+            }
+            get temperature(){
+                return this._temp;
+            }
+            set temperature(updatedTemp){
+                this._temp = updatedTemp;
+            }
+        }
+        return Thermostat;
+    }
+    const Thermostat = makeClass();
+    const thermos = new Thermostat(76);
+    let temp = thermos.temperature;
+    thermos.temperature =  5;
+    temp = thermos.temperature;
+    console.log(temp);
+
+
+   
+    </script>
